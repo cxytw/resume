@@ -30,4 +30,4 @@ jobs:
         uses: gacts/purge-jsdelivr-cache@v1
         with:
           url: |
-            https://cdn.jsdelivr.net/gh/leovincentseles/resume@publish/Yin-Chiuan_CV.pdf            
+            https://cdn.jsdelivr.net/gh/cxytw/resume@publish/Shin-Ying_CV.pdf            
