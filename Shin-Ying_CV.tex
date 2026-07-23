@@ -21,7 +21,7 @@
 \documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.2cm, footskip=1.36cm}
 
 % Specify the location of the included fonts
 \fontdir[fonts/]
@@ -42,6 +42,81 @@
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
+
+% Organization name font: semi-prominent
+\renewcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1.1em}\bodyfont\bfseries\upshape\color{graytext} #1}}
+
+% Organization name / project title: bold and dark (most prominent in entry)
+\renewcommand{\entrytitlestyle}[1]{{\fontsize{9pt}{1.1em}\bodyfont\bfseries\color{text} #1}}
+
+% Smaller header name
+\renewcommand{\headerfirstnamestyle}[1]{{\fontsize{26pt}{1em}\headerfont\color{graytext} #1}}
+\renewcommand{\headerlastnamestyle}[1]{{\fontsize{26pt}{1em}\headerfont\bfseries\color{text} #1}}
+
+% Smaller section titles with inline rule
+\makeatletter
+\renewcommand{\cvsection}[1]{%
+  \vspace{\acvSectionTopSkip}%
+  {\fontsize{13pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
+  \hspace{0.5em}%
+  \color{gray}\vhrulefill{0.9pt}%
+  \phantomsection
+}
+\makeatother
+
+% Reduce spacing between entries
+\makeatletter
+\renewcommand*{\cventry}[5]{%
+  \vspace{-2.5mm}%
+  \setlength\tabcolsep{0pt}%
+  \setlength{\extrarowheight}{0pt}%
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
+    \ifempty{#2#3}%
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}%
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\%
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}%
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}%
+  \end{tabular*}%
+}
+\makeatother
+
+% Reduce spacing between sections
+\renewcommand{\acvSectionTopSkip}{0.3mm}
+\renewcommand{\acvSectionContentTopSkip}{1.2mm}
+
+% Tighter spacing in skills table
+\makeatletter
+\renewenvironment{cvskills}{%
+\vspace{\acvSectionContentTopSkip}
+\vspace{-1.2mm}
+\begin{center}
+\setlength\tabcolsep{0.2ex}
+\setlength{\extrarowheight}{0pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
+}{%
+\end{tabular*}
+\end{center}
+}
+\renewcommand*{\cvskill}[2]{%
+	\skilltypestyle{#1} \skillsetstyle{#2} \\[0pt]
+}
+\makeatother
+
+% Tighter spacing after bullet items
+\makeatletter
+\renewenvironment{cvitems}{%
+  \vspace{-3mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{0mm}
+}
+\makeatother
 
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
@@ -70,7 +145,7 @@
 % \googlescholar{googlescholar-id}{name-to-display}
 %% \firstname and \lastname will be used
 % \googlescholar{googlescholar-id}{}
-% \extrainfo{extra informations}
+\extrainfo{\faMapMarker\acvHeaderIconSep Taipei, Taiwan}
 
 % \quote{``Be the change that you want to see in the world."}
 
@@ -85,18 +160,20 @@
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 \makecvfooter
-  {\today}
-  {Shin-Ying Chen}
-  {\thepage}
+  {}
+  {}
+  {}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/education.tex}
+\input{resume/summary.tex}
 \input{resume/experience.tex}
-\input{resume/publication.tex}
+\input{resume/project.tex}
+\input{resume/education.tex}
+% \input{resume/publication.tex}
 \input{resume/skill.tex}
 
 %-------------------------------------------------------------------------------
