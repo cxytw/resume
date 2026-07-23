@@ -562,10 +562,13 @@
 
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
+\newcounter{cvsec}
 \newcommand{\cvsection}[1]{%
+  \refstepcounter{cvsec}
   \vspace{\acvSectionTopSkip}
-  \sectionstyle{#1}
   \phantomsection
+  \pdfbookmark[1]{#1}{cvsec:\thecvsec}
+  \sectionstyle{#1}
   \color{gray}\vhrulefill{0.9pt}
 }
 
@@ -574,8 +577,9 @@
 \newcommand{\cvsubsection}[1]{%
   \vspace{\acvSectionContentTopSkip}
   \vspace{-3mm}
-  \subsectionstyle{#1}
   \phantomsection
+  \pdfbookmark[2]{#1}{cvsubsec:\thecvsec}
+  \subsectionstyle{#1}
 }
 
 % Define a paragraph for CV

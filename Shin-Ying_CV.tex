@@ -56,11 +56,13 @@
 % Smaller section titles with inline rule
 \makeatletter
 \renewcommand{\cvsection}[1]{%
+  \refstepcounter{cvsec}%
   \vspace{\acvSectionTopSkip}%
+  \phantomsection
+  \pdfbookmark[1]{#1}{cvsec:\thecvsec}%
   {\fontsize{13pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
   \hspace{0.5em}%
   \color{gray}\vhrulefill{0.9pt}%
-  \phantomsection
 }
 \makeatother
 
