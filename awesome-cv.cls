@@ -222,8 +222,8 @@
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
 % For elements of skill
-\newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\skilltypestyle}[1]{{\fontsize{8.5pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{7.5pt}{1em}\bodyfont\color{graytext} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -659,10 +659,10 @@
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
 \vspace{\acvSectionContentTopSkip}
-\vspace{-2.0mm}
+\vspace{-3.0mm}
 \begin{center}
 \setlength\tabcolsep{0.2ex}
-\setlength{\extrarowheight}{6pt}
+\setlength{\extrarowheight}{2pt}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
 }{%
 \end{tabular*}
@@ -671,8 +671,9 @@
 
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
+\newcommand*{\skillbullet}{{\fontsize{6pt}{1em}\bodyfont\color{graytext} \textbullet{} }}
 \newcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} \skillsetstyle{#2} \\[2pt]
+	\skilltypestyle{\skillbullet{}#1} \skillsetstyle{#2} \\[0pt]
 }
 
 % Define an environment for cvitems(for cventry)

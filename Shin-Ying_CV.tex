@@ -21,7 +21,7 @@
 \documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.2cm, footskip=1.36cm}
+\geometry{left=1.4cm, top=.7cm, right=1.4cm, bottom=.8cm, footskip=1.0cm}
 
 % Specify the location of the included fonts
 \fontdir[fonts/]
@@ -66,31 +66,34 @@
 }
 \makeatother
 
-% Reduce spacing between entries
+% Spacing between entries (less negative = more space above titles)
 \makeatletter
 \renewcommand*{\cventry}[5]{%
-  \vspace{-2.5mm}%
+  \vspace{-2.0mm}%
   \setlength\tabcolsep{0pt}%
   \setlength{\extrarowheight}{0pt}%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
     \ifempty{#2#3}%
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}%
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\%
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\[-0.7mm]%
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}%
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}%
   \end{tabular*}%
 }
 \makeatother
 
-% Reduce spacing between sections
-\renewcommand{\acvSectionTopSkip}{0.3mm}
-\renewcommand{\acvSectionContentTopSkip}{1.2mm}
+% Section spacing
+\renewcommand{\acvSectionTopSkip}{0.5mm}
+\renewcommand{\acvSectionContentTopSkip}{0.3mm}
 
-% Tighter spacing in skills table
+% Bullet text line spacing
+\renewcommand{\descriptionstyle}[1]{{\fontsize{9pt}{1.2em}\bodyfont\upshape\color{graytext} #1}}
+
+% Skills layout (compact single-row)
 \makeatletter
 \renewenvironment{cvskills}{%
 \vspace{\acvSectionContentTopSkip}
-\vspace{-1.2mm}
+\vspace{-1.5mm}
 \begin{center}
 \setlength\tabcolsep{0.2ex}
 \setlength{\extrarowheight}{0pt}
@@ -99,15 +102,17 @@
 \end{tabular*}
 \end{center}
 }
+\renewcommand*{\skilltypestyle}[1]{\descriptionstyle{$\bullet$~\bfseries #1}}
+\renewcommand*{\skillsetstyle}[1]{\descriptionstyle{#1}}
 \renewcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} \skillsetstyle{#2} \\[0pt]
+	\skilltypestyle{#1} \skillsetstyle{#2} \\[-0.5mm]
 }
 \makeatother
 
-% Tighter spacing after bullet items
+% Bullet spacing (less closing pull = more space between entries)
 \makeatletter
 \renewenvironment{cvitems}{%
-  \vspace{-3mm}
+  \vspace{-1.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -172,9 +177,9 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
+\input{resume/education.tex}
 \input{resume/experience.tex}
 \input{resume/project.tex}
-\input{resume/education.tex}
 % \input{resume/publication.tex}
 \input{resume/skill.tex}
 
