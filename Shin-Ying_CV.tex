@@ -44,10 +44,10 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % Organization name font: semi-prominent
-\renewcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1.1em}\bodyfont\bfseries\upshape\color{graytext} #1}}
+\renewcommand{\entrypositionstyle}[1]{{\fontsize{9pt}{1.1em}\bodyfont\bfseries\upshape\color{graytext} #1}}
 
 % Organization name / project title: bold and dark (most prominent in entry)
-\renewcommand{\entrytitlestyle}[1]{{\fontsize{9pt}{1.1em}\bodyfont\bfseries\color{text} #1}}
+\renewcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1.1em}\bodyfont\bfseries\color{text} #1}}
 
 % Smaller header name
 \renewcommand{\headerfirstnamestyle}[1]{{\fontsize{26pt}{1em}\headerfont\color{graytext} #1}}
@@ -60,7 +60,7 @@
   \vspace{\acvSectionTopSkip}%
   \phantomsection
   \pdfbookmark[1]{#1}{cvsec:\thecvsec}%
-  {\fontsize{13pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
+  {\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
   \hspace{0.5em}%
   \color{gray}\vhrulefill{0.9pt}%
 }
@@ -69,7 +69,7 @@
 % Spacing between entries (less negative = more space above titles)
 \makeatletter
 \renewcommand*{\cventry}[5]{%
-  \vspace{-2.5mm}%
+  \vspace{-2.0mm}%
   \setlength\tabcolsep{0pt}%
   \setlength{\extrarowheight}{0pt}%
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}%
@@ -83,11 +83,11 @@
 \makeatother
 
 % Section spacing
-\renewcommand{\acvSectionTopSkip}{0.3mm}
-\renewcommand{\acvSectionContentTopSkip}{0.1mm}
+\renewcommand{\acvSectionTopSkip}{0.5mm}
+\renewcommand{\acvSectionContentTopSkip}{0.3mm}
 
 % Bullet text line spacing
-\renewcommand{\descriptionstyle}[1]{{\fontsize{9.5pt}{1.0em}\bodyfont\upshape\color{graytext} #1}}
+\renewcommand{\descriptionstyle}[1]{{\fontsize{9pt}{1.15em}\bodyfont\upshape\color{graytext} #1}}
 
 % Skills layout (compact single-row)
 \makeatletter
@@ -112,16 +112,16 @@
 % Bullet spacing (less closing pull = more space between entries)
 \makeatletter
 \renewenvironment{cvitems}{%
-  \vspace{-1.5mm}
+  \vspace{-1.0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
-    \setlength{\itemsep}{0pt}
+    \setlength{\itemsep}{0.2pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-0.5mm}
+  \vspace{0mm}
 }
 \makeatother
 
