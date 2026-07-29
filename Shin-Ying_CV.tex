@@ -44,10 +44,17 @@
 \setbool{acvSectionColorHighlight}{true}
 
 % Organization name font: semi-prominent
-\renewcommand{\entrypositionstyle}[1]{{\fontsize{9pt}{1.1em}\bodyfont\bfseries\upshape\color{graytext} #1}}
+\newfontface\sourcesansprosemibold{SourceSansPro-Semibold.otf}[Path=fonts/]
+\renewcommand{\entrypositionstyle}[1]{{\fontsize{9.5pt}{1.1em}\sourcesansprosemibold\color{graytext} #1}}
 
 % Organization name / project title: bold and dark (most prominent in entry)
-\renewcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1.1em}\bodyfont\bfseries\color{text} #1}}
+\renewcommand{\entrytitlestyle}[1]{{\fontsize{10.5pt}{1.1em}\bodyfont\bfseries\color{text} #1}}
+
+% Larger header contact info
+\renewcommand{\headersocialstyle}[1]{{\fontsize{8.5pt}{1em}\headerfont\color{text} #1}}
+
+% More space between name and contact info
+\renewcommand{\acvHeaderAfterNameSkip}{1.8mm}
 
 % Smaller header name
 \renewcommand{\headerfirstnamestyle}[1]{{\fontsize{26pt}{1em}\headerfont\color{graytext} #1}}
@@ -60,7 +67,7 @@
   \vspace{\acvSectionTopSkip}%
   \phantomsection
   \pdfbookmark[1]{#1}{cvsec:\thecvsec}%
-  {\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
+  {\fontsize{14.5pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor#1}%
   \hspace{0.5em}%
   \color{gray}\vhrulefill{0.9pt}%
 }
@@ -87,7 +94,7 @@
 \renewcommand{\acvSectionContentTopSkip}{0.3mm}
 
 % Bullet text line spacing
-\renewcommand{\descriptionstyle}[1]{{\fontsize{9pt}{1.15em}\bodyfont\upshape\color{graytext} #1}}
+\renewcommand{\descriptionstyle}[1]{{\fontsize{9.5pt}{1.15em}\bodyfont\upshape\color{graytext} #1}}
 
 % Skills layout (compact single-row)
 \makeatletter
